@@ -5,11 +5,11 @@ function getTwitch(type){
 		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
 			var info = JSON.parse(xhr.responseText);
             console.log(info);
-//            if(type === "freecodecamp"){
-//                campStatus(info.stream)
-//            } else{
+            if(type === "freecodecamp"){
+                campStatus(info.stream)
+            } else{
                 topTen(info.featured);
-//            }
+            }
 		}
 	};
 	xhr.send();
@@ -55,8 +55,18 @@ function display(data){
     container.appendChild(listEl);
 }
 
+//Tells if freecodecamp is streaming
+function campStatus(isOnline){
+    var offline = document.getElementById("offline");
+    if(isOnline === null){
+        offline.innerHTML = "Offline";
+    } else{
+        offline.innerHTML = isOnline;
+    }
+}
 
 getTwitch("freecodecamp");
+getTwitch("featured");
 
 
 
