@@ -1,0 +1,14 @@
+.container{
+    text-align: center;
+}
+
+#streams {
+    list-style-type: none;
+    width: auto;
+    
+}
+
+
+p{
+    display: inline-block;
+}
